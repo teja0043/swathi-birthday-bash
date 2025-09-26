@@ -15,13 +15,13 @@ export const Sparkles = () => {
   useEffect(() => {
     const pieces: Sparkle[] = [];
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
       pieces.push({
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        delay: Math.random() * 2,
-        scale: Math.random() * 0.5 + 0.5,
+        delay: Math.random() * 3,
+        scale: Math.random() * 0.8 + 0.4,
       });
     }
 

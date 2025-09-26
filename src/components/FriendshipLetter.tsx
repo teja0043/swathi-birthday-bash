@@ -126,7 +126,7 @@ Happy Birthday, Swathi! 🎂🎉💖`;
           <Button
             onClick={onComplete}
             size="lg"
-            className="bg-gradient-to-r from-celebration to-magic hover:from-magic hover:to-celebration text-white px-12 py-4 text-xl font-bold rounded-full shadow-magical transform hover:scale-110 transition-all duration-300"
+            className="bg-gradient-to-r from-celebration to-magic hover:from-magic hover:to-celebration text-white px-12 py-4 text-xl font-bold rounded-full shadow-magical button-celebration transform transition-all duration-300"
           >
             🎆 Continue to Finale 🎆
           </Button>

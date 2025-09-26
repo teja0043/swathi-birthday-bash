@@ -38,9 +38,73 @@ export const GiftBoxSurprise = ({ onGiftOpened }: GiftBoxSurpriseProps) => {
         </p>
       </motion.div>
 
-      {/* Gift Table */}
+      {/* Gift Table - Enhanced festive design */}
       <div className="relative">
-        <div className="w-96 h-32 bg-gradient-to-r from-accent to-sparkle rounded-lg shadow-magical mb-4" />
+        <motion.div 
+          className="w-full max-w-lg h-48 bg-gradient-to-br from-magic via-sparkle to-celebration rounded-3xl shadow-magical relative overflow-hidden mb-8"
+          animate={{
+            boxShadow: [
+              "0 20px 60px -10px hsl(260 85% 75% / 0.4)",
+              "0 20px 60px -10px hsl(50 100% 80% / 0.5)",
+              "0 20px 60px -10px hsl(350 80% 70% / 0.4)",
+              "0 20px 60px -10px hsl(260 85% 75% / 0.4)"
+            ]
+          }}
+          transition={{ duration: 4, repeat: Infinity }}
+        >
+          {/* Floating gift decorations */}
+          <div className="absolute inset-0 pointer-events-none">
+            {['🎁', '✨', '🎀', '💝', '🌟'].map((emoji, i) => (
+              <motion.div
+                key={i}
+                className="absolute text-2xl"
+                style={{
+                  left: `${10 + i * 18}%`,
+                  top: `${15 + Math.sin(i * 2) * 15}%`,
+                }}
+                animate={{
+                  y: [-8, 8, -8],
+                  rotate: [-15, 15, -15],
+                  scale: [0.8, 1.2, 0.8],
+                }}
+                transition={{
+                  duration: 2.5 + i * 0.3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                {emoji}
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Shimmer effect */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            animate={{
+              x: ["-100%", "100%"],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+          
+          {/* Glowing border */}
+          <motion.div 
+            className="absolute inset-0 rounded-3xl border-2"
+            animate={{
+              borderColor: [
+                "hsl(260 85% 75% / 0.6)",
+                "hsl(50 100% 80% / 0.8)",
+                "hsl(350 80% 70% / 0.6)",
+                "hsl(260 85% 75% / 0.6)"
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
+        </motion.div>
         
         <motion.div
           className="relative z-10 cursor-pointer"
@@ -52,10 +116,25 @@ export const GiftBoxSurprise = ({ onGiftOpened }: GiftBoxSurpriseProps) => {
             <motion.img
               src={giftBoxImage}
               alt="Gift Box"
-              className="w-48 h-48 object-contain mx-auto hover:scale-110 transition-transform duration-300"
+              className="w-48 h-48 object-contain mx-auto cursor-pointer transform transition-all duration-300 hover:scale-110 animate-glow-pulse"
               onClick={handleUnwrap}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ 
+                scale: 1.15,
+                filter: "drop-shadow(0 0 30px hsl(50 100% 80% / 0.8))"
+              }}
               whileTap={{ scale: 0.95 }}
+              animate={{
+                y: [-3, 3, -3],
+                filter: [
+                  "drop-shadow(0 0 20px hsl(50 100% 80% / 0.4))",
+                  "drop-shadow(0 0 40px hsl(320 85% 65% / 0.6))",
+                  "drop-shadow(0 0 20px hsl(50 100% 80% / 0.4))"
+                ]
+              }}
+              transition={{
+                y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                filter: { duration: 3, repeat: Infinity }
+              }}
             />
           ) : (
             <motion.div 

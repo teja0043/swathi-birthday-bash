@@ -63,6 +63,13 @@
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --shadow-magical: 0 20px 60px -10px hsl(320 85% 65% / 0.3);
     --shadow-sparkle: 0 0 30px hsl(45 95% 70% / 0.6);
+    --shadow-celebration: 0 25px 50px -12px hsl(350 80% 70% / 0.4);
+    --shadow-glow: 0 0 40px hsl(45 95% 70% / 0.5);
+    
+    /* Button hover glows */
+    --button-glow: 0 0 25px hsl(320 85% 65% / 0.6);
+    --button-glow-celebration: 0 0 25px hsl(350 80% 70% / 0.6);
+    --button-glow-magic: 0 0 25px hsl(260 85% 75% / 0.6);
 
     --radius: 0.5rem;
 
@@ -129,5 +136,68 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Animations */
+@layer components {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+  
+  .button-magical {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .button-magical:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--button-glow), 0 10px 25px -5px hsl(320 85% 65% / 0.3);
+  }
+  
+  .button-celebration:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--button-glow-celebration), 0 10px 25px -5px hsl(350 80% 70% / 0.3);
+  }
+  
+  .button-magic:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--button-glow-magic), 0 10px 25px -5px hsl(260 85% 75% / 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 20px hsl(45 95% 70% / 0.4);
+  }
+  100% {
+    box-shadow: 0 0 40px hsl(45 95% 70% / 0.8), 0 0 60px hsl(320 85% 65% / 0.4);
   }
 }

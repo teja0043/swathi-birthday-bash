@@ -38,7 +38,7 @@ export const LandingPage = ({ onStart }: LandingPageProps) => {
         <Button
           onClick={onStart}
           size="lg"
-          className="text-2xl px-12 py-6 bg-gradient-to-r from-primary to-celebration hover:from-celebration hover:to-primary transform hover:scale-110 transition-all duration-300 shadow-magical animate-bounce"
+          className="text-2xl px-12 py-6 bg-gradient-to-r from-primary to-celebration hover:from-celebration hover:to-primary button-magical transform transition-all duration-300 shadow-magical animate-bounce"
         >
           🎊 Start the Celebration! 🎊
         </Button>

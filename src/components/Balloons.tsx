@@ -16,13 +16,13 @@ export const Balloons = () => {
     const balloonEmojis = ['🎈', '🎀', '🎊', '🌟', '💖'];
     const pieces: Balloon[] = [];
 
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 25; i++) {
       pieces.push({
         id: i,
         emoji: balloonEmojis[Math.floor(Math.random() * balloonEmojis.length)],
         x: Math.random() * 100,
-        delay: Math.random() * 2,
-        duration: 3 + Math.random() * 2,
+        delay: Math.random() * 3,
+        duration: 4 + Math.random() * 3,
       });
     }
 
@@ -37,12 +37,14 @@ export const Balloons = () => {
           className="absolute text-4xl"
           style={{
             left: `${balloon.x}%`,
+            filter: `drop-shadow(0 0 8px hsl(320 85% 65% / 0.4))`,
           }}
           initial={{ y: window.innerHeight + 50, rotate: 0 }}
           animate={{
             y: -100,
-            rotate: 360,
-            x: [0, 20, -20, 0],
+            rotate: [0, 360, 720],
+            x: [0, 30, -30, 0],
+            scale: [0.8, 1.2, 0.8],
           }}
           transition={{
             duration: balloon.duration,
